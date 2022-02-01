@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  margin: 0;
+  font-family: "Roboto";
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: rgb(212, 212, 212);
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #05a56a;
+  color: white;
+}
+
+.navbar a.auth {
+  float: right;
+}
+
+.navbar a.activeAuth {
+  background-color: #05a56a;
+  color: white;
+  float: right;
+ }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 8px 0 16px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgb(212, 212, 212);
+  outline: none;
+}
+
+button {
+  background-color: #05a56a;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+.container {
+  padding: 10px;
+}
+
+.form-box {
+  background-color: #252537;
+  margin: 5% auto 15% auto; 
+  border: 1px solid rgb(133, 133, 133);
+  width: 100%;
+}
+
+hr {
+  border: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+}
+
+
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="/jquery-bracket/dist/jquery.bracket.min.css" />
+</head>
+<body style="background-color:#252E37">
+
+<div class="navbar">
+  <a href="/home">Home</a>
+  <a href="/create">Create Tournament</a>
+  <a href="/edit">Edit Tournament</a>
+  <a href="/participate">Participate in a Tournament</a>
+  <a class="active" href="/bracket">View Brackets</a>
+  <a href="/history">View History</a>
+  <a href="/contact">Contact</a>
+  <a href="/withdraw" onclick="return confirm('Are you sure you want to Withdraw from the tournament?');">Withdraw</a>
+  <a class="auth" href="/logout" id = "logoutB" display = 'none'>Logout</a>
+
+</div>
+<div class="tournament" ></div>
+<script type="text/javascript" src="/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/jquery-bracket/dist/jquery.bracket.min.js"></script>
+<script>
+var saveData = JSON.parse(document.cookie);
+ 
+
+
+$(function() {
+    $('.tournament').bracket({
+      init: saveData })
+  })
+</script>
+</body>
+</html>

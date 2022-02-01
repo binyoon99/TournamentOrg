@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  font-family: "Roboto";
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: rgb(212, 212, 212);
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #05a56a;
+  color: white;
+}
+
+.navbar a.auth {
+  float: right;
+}
+
+table {
+  font-family: "Roboto";
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+</head>
+<body style="background-color:#252E37">
+
+<div class="navbar">
+  <a href="/home">Home</a>
+  <a href="/create">Create Tournament</a>
+  <a href="/edit">Edit Tournament</a>
+  <a href="/participate">Participate in a Tournament</a>
+  <a href="/bracket">View Brackets</a>
+  <a class="active" href="/history">View History</a>
+  <a href="/contact">Contact</a>
+  <a href="/withdraw" onclick="return confirm('Are you sure you want to Withdraw from the tournament?');">Withdraw</a>
+  <a class="auth" href="/logout" id = "logoutB" display = 'none'>Logout</a>
+</div>
+
+<div style="padding-left:16px; color:white">
+  <h1>Tournamnent Participation History</h1>
+    <table>
+        <th>Tournament ID</th> <th>Tournament Name</th> <th>Number of Participants</th> <th>Description</th> <th>Status</th> <th>Host</th>
+        {{# each items}}
+            <tr>                    
+                <div>
+                    <td>{{ tournament }}</td>
+                </div>
+                <div>
+                    <td>{{ tournament_name }}</td>
+                </div>
+                <div>
+                    <td>{{ no_participants }}</td>
+                </div>
+                <div>
+                    <td>{{ description }}</td>
+                </div>
+                <div>
+                    <td>{{ status }}</td>
+                </div>
+                <div>
+                    <td>{{ host }}</td>
+                </div>
+            </tr>                   
+    {{/each}}
+    </table>
+</div>
+</body>
+</html>

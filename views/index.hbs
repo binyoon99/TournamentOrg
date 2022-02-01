@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  font-family: "Roboto";
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: rgb(212, 212, 212);
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #05a56a;
+  color: white;
+}
+
+.navbar a.auth {
+  float: right;
+}
+
+</style>
+</head>
+<body style="background-color:#252E37">
+
+
+<script>
+function myFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+<script>
+  function test(){
+  if (req.session.username == null){
+    document.getElementById("loginB".style.display = 'block');
+    document.getElementById("logoutB".style.display = 'none');
+  }else {
+    document.getElementById("loginB".style.display = 'none');
+    document.getElementById("logoutB".style.visibility="block");
+
+  }
+  }
+  </script>
+<div class="navbar">
+  <a class="active" href="/">Home</a>
+  <a href="/create">Create Tournament</a>
+  <a href="/edit">Edit Tournament</a>
+  <a href="/participate">Participate in a Tournament</a>
+  <a href="/bracket">View Brackets</a>
+  <a href="/history">View History</a>
+  <a href="/contact">Contact</a>
+  <a href="/withdraw" onclick="return confirm('Are you sure you want to Withdraw from the tournament?');">Withdraw</a>
+  <a class="auth" href="/logout" id = "logoutB" display = 'none'>Logout</a> 
+</div>
+
+<div style="padding-left:16px; color:white">
+  <h1>Tournament Organizer</h1>
+  <h3>The majority of professional leagues for major sports in the world use a tournament to determine the ultimate winner of a season. On a smaller scale, tournaments are present in school sports, clubs and local events. Oftentimes these smaller events will not have an easily accessible way to host and display the results of the tournament. A tournament website makes it easy for tournament enthusiasts to host, participate, or track the games and tournaments of sports they are interested in. </h3>
+<h3>Our development team will be tasked to create a website which will give a user access to an interactive tournament hosting site which will allow them to easily create and edit a tournament. The user will be allowed to provide a link to participants or spectators of the tournament to view the results.</h3>
+</div>
+
+</body>
+</html>
