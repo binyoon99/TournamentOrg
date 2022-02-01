@@ -1,1 +1,1 @@
-mongodb+srv://dbUser:ivNu3Yf1X8zK2KQ1@cluster0.x4vsz.mongodb.net/cps731?retryWrites=true&w=majority
+put your Mongo DB url here
